@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{judul}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css"%}">
+
+</head>
+<body>
+
+    <img id = "banner" src="{% static "img/banner_doit.png" %}" alt="">
+    <nav>
+        <ul>
+
+            <li><a href="/">Home</a></li>
+            <li><a href="/control">Control</a></li>
+            <li><a href="/laporandata">Laporan Data</a></li>
+            <li><a href="/rab">RAB</a></li>
+            <li><a href="/transfer">Transfer</a></li>
+        </ul>
+    </nav>
+
+
+    <h1>{{subjudul}}</h1>
+
+</body>
+</html>
