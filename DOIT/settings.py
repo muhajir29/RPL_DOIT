@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'DOIT.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rpl_doit',
+        'USER': 'root',
+        'PASSWORD' : '1m4mmuh4j1r',
+        'HOST':'localhost',
+        'PORT': '3306'
+
     }
 }
 
