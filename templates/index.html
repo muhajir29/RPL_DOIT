@@ -5,23 +5,78 @@
     <title>{{judul}}</title>
     <link rel="stylesheet" type="text/css" href="{% static "css/styles.css"%}">
 
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/bootstrap.css"%}">
+
+
 </head>
 <body>
 
-    <img id = "banner" src="{% static "img/banner_doit.png" %}" alt="">
-    <nav>
-        <ul>
 
-            <li><a href="/">Home</a></li>
-            <li><a href="/control">Control</a></li>
-            <li><a href="/laporandata">Laporan Data</a></li>
-            <li><a href="/rab">RAB</a></li>
-            <li><a href="/transfer">Transfer</a></li>
-        </ul>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+          <a class="navbar-brand" href="#">
+            DOIT
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse "  id="navbarNav">
+
+            <ul class="navbar-nav bg-dark ml-auto">
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/control">Control</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/laporandata">Laporan Data</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/rab">RAB</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/transfer">Transfer</a>
+              </li>
+
+            </ul>
+          </div>
     </nav>
 
 
-    <h1>{{subjudul}}</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">{{judul}}</h1>
+            <h2>{{subjudul}}</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="container bg-secondary text-dark shadow" style="margin-top: -50px">
+            <div class="row" style="height: 1000px">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{%static "vendor/jquery/jquery.js"%}" type="text/javascript"></script>
+
+    <script src="{%static "vendor/popper/popper.js"%}" type="text/javascript"></script>
+
+    <script src="{% static "vendor/bootstrap/bootstrap.js" %}" type="text/javascript"></script>
 
 </body>
 </html>
