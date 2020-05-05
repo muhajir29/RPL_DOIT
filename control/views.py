@@ -1,12 +1,17 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+# import from model
+from .models import Post
+
 
 def index(request):
+
+    posts = Post.objects.all()
     context = {
         'judul' : 'control DOIT',
         'subjudul' : 'Selamat Datang DI Control DOIT',
-        'banner' : 'img/banner_doit.jpg',
+        'Posts' : posts,
 
 
     }

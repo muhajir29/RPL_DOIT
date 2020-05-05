@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>RAB</title>
-</head>
-<body>
-
-    <h1>INI MERUPAKAN RAB </h1>
+{% extends "base.html" %}
 
 
-    <ul>
-        <li><a href="/">HOME</a></li>
+{% block header %}
+<h1 class="display-4">{{judul}}</h1>
+<h2>{{subjudul}}</h2>
+<p class="lead">
+    DOIT adalah suatu aplikasi yang di tunjukan kepada pemerintah
+    dalam mempermudah pengecekan, penyaluran, dan pengamanan dana
+    kepada daerah-daerah dengan berbasis online.
+    Sistem Online in akan sangat memudahkan pemerintah dalam
+    memvalidasi seluruh pemasukan dan pengeluaran pendanaan
+    pada setiap daerah dan diharapkan dapat mengurangi
+    tindakan kriminal seperti penggelapan dana yang sangat meresahkan pemerintah.
+.</p>
+{% endblock header %}
 
-        <li><a href="/control">Control</a></li>
-        <li><a href="/laporandata">Laporan Data</a></li>
-        <li><a href="/transfer">Transfer</a></li>
+{%block content%}
 
 
+    <form method="post">
+        <div class ='form-group'>
+            {% csrf_token %}
+            <table>
+                {{form_rab.as_table}}
+            </table>
+            <br>
+        </div>
+        <button type="submit">kirim</button>
+    </form>
 
-    </ul>
-
-</body>
-</html>
+{% endblock content %}

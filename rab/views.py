@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
-
+from .forms import Form_Rab
 
 def index(request):
     context = {
         'judul': 'RAB DOIT',
         'subjudul' : 'Selamat Datang di RAB DOIT',
-        'banner' : 'img/banner_doit.jpg',
+        'form_rab' : Form_Rab()
 
         }
 
-    return render(request, 'index.html', context    )
+    return render(request, 'rab/index.html', context    )
