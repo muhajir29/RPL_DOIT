@@ -11,28 +11,17 @@
     <a href="/transfer/provinsi" class="btn btn-primary btn-lg" role="button">Provinsi</a>
     <a href="/transfer/kabupaten" class="btn btn-primary btn-lg" role="button">Kabupaten</a>
 
+
+
+
+
 </div>
 
 {% endblock header %}
 
 
 {%block content%}
-    <form method="post">
-        <div class ='form-group'>
-            {% csrf_token %}
-            <table>
-                {{form_transfer.as_table}}
-            </table>
-            <br>
-        </div>
-        <button type="submit">kirim</button>
-    </form>
-
-
 
 
 {% endblock content %}
-
-
-
 

@@ -14,6 +14,8 @@ class Form_Rab(forms.Form):
                                                 }
                                                 )
                                             )
+
+
     deskripsi           = forms.CharField(
                                             required = False,
                                             widget = forms.Textarea(
