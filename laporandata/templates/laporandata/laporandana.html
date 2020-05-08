@@ -1,0 +1,68 @@
+<{% extends "base.html" %}
+
+
+{% block header %}
+<h1 class="display-4">{{judul}}</h1>
+<h2>{{subjudul}}</h2>
+
+
+{% endblock header %}
+
+
+{%block content%}
+<form method="post">
+    <div class ='form-group'>
+        {% csrf_token %}
+        <table>
+            {{form_laporandana.as_table}}
+        </table>
+        <br>
+    </div>
+    <button type="submit">kirim</button>
+</form>
+
+<br>
+
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Uraian</th>
+      <th scope="col">Harga</th>
+      <th scope="col">Jumlah</th>
+      <th scope="col">Bukti</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>beli mouse</td>
+        <td>20000</td>
+        <td>20000</td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="#" class="btn btn-secondary btn-link" role="button">kegiatan</a>
+                <a href="#" class="btn btn-secondary btn-link" role="button">transaksi</a>
+            </div>
+
+        </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+    <br>
+    <h2>{{subjudul}}</h2>
+
+
+
+{% endblock content %}
+
+
+
+
