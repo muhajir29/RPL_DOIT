@@ -12,4 +12,4 @@ def index(request):
     }
 
 
-    return render(request, 'index.html', context)
+    return render(request, 'laporandata/index.html', context)

@@ -4,27 +4,88 @@
 {% block header %}
 <h1 class="display-4">{{judul}}</h1>
 <h2>{{subjudul}}</h2>
-<p class="lead">
-    DOIT adalah suatu aplikasi yang di tunjukan kepada pemerintah
-    dalam mempermudah pengecekan, penyaluran, dan pengamanan dana
-    kepada daerah-daerah dengan berbasis online.
-    Sistem Online in akan sangat memudahkan pemerintah dalam
-    memvalidasi seluruh pemasukan dan pengeluaran pendanaan
-    pada setiap daerah dan diharapkan dapat mengurangi
-    tindakan kriminal seperti penggelapan dana yang sangat meresahkan pemerintah.
-.</p>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+<div class="right">
+    <a href="/rab/pengajuan" class="btn btn-primary btn-lg" role="button">Mengajukan Anggaran</a>
+</div>
+
+</div>
+
+
+
 {% endblock header %}
 
 {%block content%}
-    <form method="post">
-        <div class ='form-group'>
-            {% csrf_token %}
-            <table>
-                {{form_rab.as_table}}
-            </table>
-            <br>
-        </div>
-        <button type="submit">kirim</button>
-    </form>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Tanggal</th>
+      <th scope="col">Pengajuan Dari</th>
+      <th scope="col">Uraian</th>
+      <th scope="col">Saldo</th>
+      <th scope="col">Proposal</th>
+      <th scope="col">Tanggapan</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>12-12-2020</td>
+        <td>banten</td>
+        <td>pengajuan dana daerah</td>
+        <td>200000</td>
+        <td>
+            <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Download Proposal</a>
+        </td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Diterima</a>
+                <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Tidak</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+
+        <th scope="row">1</th>
+        <td>12-12-2020</td>
+        <td>banten</td>
+        <td>pengajuan dana daerah</td>
+        <td>200000</td>
+        <td>
+            <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Download Proposal</a>
+        </td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Diterima</a>
+                <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Tidak</a>
+            </div>
+        </td>
+
+    </tr>
+    <tr>
+        <th scope="row">1</th>
+        <td>12-12-2020</td>
+        <td>banten</td>
+        <td>pengajuan dana daerah</td>
+        <td>200000</td>
+        <td>
+            <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Download Proposal</a>
+        </td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Diterima</a>
+                <a href="/rab/pengajuan" class="btn btn-secondary btn-link" role="button">Tidak</a>
+            </div>
+        </td>
+
+
+    </tr>
+  </tbody>
+</table>
 
 {% endblock content %}
+
+

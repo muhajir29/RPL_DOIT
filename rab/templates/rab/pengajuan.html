@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block header %}
+<h1 class="display-4">{{judul}}</h1>
+<h2>{{subjudul}}</h2>
+<p class="lead">
+    DOIT adalah suatu aplikasi yang di tunjukan kepada pemerintah
+    dalam mempermudah pengecekan, penyaluran, dan pengamanan dana
+    kepada daerah-daerah dengan berbasis online.
+    Sistem Online in akan sangat memudahkan pemerintah dalam
+    memvalidasi seluruh pemasukan dan pengeluaran pendanaan
+    pada setiap daerah dan diharapkan dapat mengurangi
+    tindakan kriminal seperti penggelapan dana yang sangat meresahkan pemerintah.
+.</p>
+{% endblock header %}
+
+{%block content%}
+    <form method="post">
+        <div class ='form-group'>
+            {% csrf_token %}
+            <table>
+                {{form_rab.as_table}}
+            </table>
+            <br>
+        </div>
+        <button type="submit">kirim</button>
+    </form>
+
+{% endblock content %}

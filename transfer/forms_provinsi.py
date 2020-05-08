@@ -13,7 +13,8 @@ class Form_Transfer_Provinsi(forms.Form):
         )
     provinsi        = forms.ChoiceField(choices=PILIHAN)
 
-    print(provinsi)
+
+
 
 
     nama_kegiatan       = forms.CharField(

@@ -3,7 +3,7 @@ from django import forms
 
 
 
-class Form_Transfer_Provinsi(forms.Form):
+class Form_Transfer_Kabupaten(forms.Form):
 
     # select
     PILIHAN = (
@@ -12,6 +12,16 @@ class Form_Transfer_Provinsi(forms.Form):
             ('Jakarta','Jakarta'),
         )
     provinsi        = forms.ChoiceField(choices=PILIHAN)
+
+
+
+    # select
+    PILIHAN_KABUPATEN = (
+            ('pandeglang','pandeglang'),
+            ('bandung','bandung'),
+            ('bandung','bandung'),
+        )
+    kabupaten        = forms.ChoiceField(choices=PILIHAN_KABUPATEN)
 
 
 
