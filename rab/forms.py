@@ -1,33 +1,78 @@
 from django import forms
 
+from .models import Pusat, Rab , Sub, Transfer, ValTransfer, ValRab
 
 
 
-class Form_Rab(forms.Form):
-    nama_kegiatan       = forms.CharField(
-                                            label = "Nama Kegiatan",
-                                            max_length = 30,
-                                            widget = forms.TextInput(
-                                                attrs = {
-                                                    'class' : 'form-control',
-                                                    'placeholder' : "masukan kegiatan"
-                                                }
-                                                )
-                                            )
+
+class FormTransfer(forms.ModelForm):
+    class Meta:
+        model = Transfer
+        fields = [
+            'pusat','sub', 'uraian', 'jumlah'
+        ]
+
+        label = {
+            'pusat' : "pengirim",
+            'sub' : "penerima"
+        }
 
 
-    deskripsi           = forms.CharField(
-                                            required = False,
-                                            widget = forms.Textarea(
-                                                attrs = {
-                                                    'class' : 'form-control',
-                                                    'placeholder': 'masukan deskripsi kegiatan'
-                                                }
 
-                                                ))
-    tujuan              = forms.CharField(required = False, widget = forms.Textarea)
-    jumlah_biaya        = forms.FloatField()
-    upload_proposal     = forms.FileField(label = "Upload Proposal")
+class FormRab(forms.ModelForm):
+    class Meta :
+        model = Rab
+        fields = [
+            'pusat', 'sub', 'nama_kegiatan', 'deskripsi','tujuan', 'jumlah', 'proposal'
+        ]
+
+
+class FormValTransfer(forms.ModelForm):
+    class  Meta:
+        model = ValTransfer
+        fields = ['transfer', 'uraian', 'harga', 'bukti_item', 'bukti_transfer']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

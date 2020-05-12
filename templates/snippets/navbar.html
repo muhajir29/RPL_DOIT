@@ -39,15 +39,10 @@
             <a class="nav-link" href="/transfer">Transfer</a>
           </li>
 
-
-          <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-              <form method="POST">
-                {% csrf_token %}
-                <input type="submit" name="logout">
-              </form>
-          </li>
-
+          <form method = "POST" class="nav-item"  >
+              {% csrf_token %}
+              <input type="submit" name="Logout" value="Logout" class = "nav-link"></input>
+           </form>
 
 
 

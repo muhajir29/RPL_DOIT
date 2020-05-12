@@ -10,6 +10,15 @@ def index(request):
         'judul' : 'DO IT',
         'subjudul' : 'selamat datang di DOIT (DANA OKE INTIME)',
     }
+    print(request.method)
+
+
+    if request.method == "POST":
+        if request.POST["logout"] == "Logout":
+            print("ini masuk")
+            logout(request)
+            return redirect("login")
+
     return render(request, 'index.html', context)
 
 
@@ -42,8 +51,8 @@ def logoutView(request):
     context = {
             'judul' : "logout",
     }
-
     if request.method == "POST":
+        print(request.POST['logout'])
         if request.POST["logout"] == "Submit":
             logout(request)
 

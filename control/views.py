@@ -5,7 +5,6 @@ from .forms import Form_Control
 # import from model
 from .models import Post
 
-
 def index(request):
 
     posts = Post.objects.all()

@@ -23,8 +23,6 @@ def provinsi(request):
         'subjudul' : 'Silahkan Masukan Data Transfer',
         'banner' : 'img/banner_doit.jpg',
         'form_transfer': Form_Transfer_Provinsi(),
-
-
         }
 
 
