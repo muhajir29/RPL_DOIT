@@ -3,7 +3,7 @@
 
 {% block header %}
 <h1 class="display-4">{{judul}}</h1>
-<h2>{{subjudul}}</h2>
+
 <p class="lead">
     DOIT adalah suatu aplikasi yang di tunjukan kepada pemerintah
     dalam mempermudah pengecekan, penyaluran, dan pengamanan dana
@@ -22,50 +22,33 @@
   <thead>
     <tr>
       <th scope="col">No</th>
+      <th scope="col">Tanggal</th>
       <th scope="col">Uraian</th>
       <th scope="col">Pemasukan</th>
       <th scope="col">Pengeluaran</th>
       <th scope="col">Jumlah</th>
     </tr>
   </thead>
-
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>pajak daerah</td>
-      <td>2000</td>
-      <td>0</td>
-      <td>20000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>pemasukan pemerintah</td>
-      <td>30000</td>
-      <td>0</td>
-      <td>50000</td>
-
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Uang Desa</td>
-      <td>0</td>
-      <td>5000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>pajak parawisata</td>
-      <td>1000000</td>
-      <td>0</td>
-      <td>100000</td>
-
-
-    </tr>
-
-
-
+      {% for akun in listtransfer %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{akun.tanggal_transfer}}</td>
+          <td>{{akun.uraian}}</td>
+          <td>{{akun.jumlah}}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+          <th></th>
+          <td></td>
+          <td></td>
+          <td>{{saldo}}</td>
+        </tr>
 
   </tbody>
+
+
+
 </table>
 
 
