@@ -4,18 +4,18 @@ from django.contrib import admin
 
 from .views import index, loginView, logoutView
 
-
+from rab.views import showtransfer, transfer
 
 urlpatterns = [
 
     url(r'^login/$', loginView , name = "login"),
     url(r'^logout/$', logoutView, name = "logout"),
-    url(r'^$', index,  name = "index"),
+    url(r'^$', showtransfer,  name = "index"),
     url(r'^admin/', admin.site.urls),
     url(r'^control/', include('control.urls', namespace = 'control')),
     url(r'^laporandata/', include('laporandata.urls', namespace = "laporandata")),
     url(r'^rab/', include('rab.urls', namespace = "rab")),
-    url(r'^transfer/', include('transfer.urls')),
+    url(r'^transfer/', transfer , name = 'transfer'),
 
 
 ]

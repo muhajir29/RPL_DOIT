@@ -79,7 +79,7 @@ def transfer(request):
             data_transfer.errors
             print("error")
             print(data_transfer.errors)
-        return redirect("rab:index")
+        return redirect("index")
 
     context = {
         'judul': 'RAB DOIT',
