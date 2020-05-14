@@ -23,6 +23,7 @@
     <tr>
       <th scope="col">No</th>
       <th scope="col">Tanggal</th>
+      <th scope="col">Pengajuan</th>
       <th scope="col">Uraian</th>
       <th scope="col">Pemasukan</th>
       <th scope="col">Pengeluaran</th>
@@ -34,8 +35,11 @@
         <tr>
           <th scope="row">{{forloop.counter}}</th>
           <td>{{akun.tanggal_transfer}}</td>
+          <td>{{akun.pusat}} - {{akun.sub}}</td>
+
           <td>{{akun.uraian}}</td>
           <td>{{akun.jumlah}}</td>
+          <td>{{akun.pengeluaran}}</td>
         </tr>
       {% endfor %}
       <tr>
