@@ -2,6 +2,7 @@
 
 
 {% block header %}
+<h1>{{coba.imam}}</h1>
 <h1 class="display-4">{{judul}}</h1>
 
 <p class="lead">
@@ -28,6 +29,7 @@
       <th scope="col">Pemasukan</th>
       <th scope="col">Pengeluaran</th>
       <th scope="col">Jumlah</th>
+      <th scope="col">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -40,13 +42,21 @@
           <td>{{akun.uraian}}</td>
           <td>{{akun.jumlah}}</td>
           <td>{{akun.pengeluaran}}</td>
+          <td> {{akun.saldo}}</td>
+          <td><a class="btn btn-danger" href="delete/{{akun.id}}" title="">Delete</a>
+
+
         </tr>
       {% endfor %}
       <tr>
           <th></th>
           <td></td>
           <td></td>
-          <td>{{saldo}}</td>
+          <td>Jumlah</td>
+          <td>{{saldo_pemasukan}}</td>
+          <td>{{saldo_pengeluaran}}</td>
+          <td>{{saldo_total}}</td>
+
         </tr>
 
   </tbody>

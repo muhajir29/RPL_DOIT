@@ -51,6 +51,7 @@ def logoutView(request):
     context = {
             'judul' : "logout",
     }
+    print("imammuhajir")
     if request.method == "POST":
         print(request.POST['logout'])
         if request.POST["logout"] == "Submit":
@@ -58,7 +59,7 @@ def logoutView(request):
 
         return redirect('login')
 
-    return render(request , 'logout.html', context)
+    return render(request , 'index.html', context)
 
 
 

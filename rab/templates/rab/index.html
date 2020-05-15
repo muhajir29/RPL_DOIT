@@ -31,6 +31,7 @@
     </tr>
 
   </thead>
+
   <tbody>
     {% for data in listrab %}
         <tr>
@@ -39,8 +40,10 @@
             <td>{{data.sub}}</td>
             <td>{{data.nama_kegiatan}}</td>
             <td>{{data.jumlah}}</td>
+            <td><a href="/media/file/{{data.proposal}}" download>download</a></td>
+            <td><a class="btn btn-danger" href="/rab/delete/{{data.id}}" title="">Delete</a>
 
-            <td><a href="/media/file/default.pdf" download>download</a></td>
+
 
 
         </tr>

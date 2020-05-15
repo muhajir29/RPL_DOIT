@@ -11,6 +11,7 @@
     <a href="/transfer/provinsi" class="btn btn-primary btn-lg" role="button">Provinsi</a>
     <a href="/transfer/kabupaten" class="btn btn-primary btn-lg" role="button">Kabupaten</a>
  -->
+<a href="/laporandata/category/6/" class="btn btn-primary btn-lg" role="button">List Laporan Data</a>
 
 </div>
 
@@ -29,45 +30,10 @@
     <button type="submit">kirim</button>
     <br>
     <br>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Transfer Id</th>
-          <th scope="col">Uraian</th>
-          <th scope="col">Jumlah</th>
-          <th scope="col">Bukti Pembayaran</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for akun in listvaltransfer %}
-            <tr>
-              <th scope="row">{{forloop.counter}}</th>
-              <td>{{akun.transfer}}</td>
-              <td>{{akun.uraian}}</td>
-              <td>{{akun.harga}}</td>
-
-              <td>
-                  <a href="/media/default.pdf" download>Bukti Item</a>
-                  <a href="/media/default.pdf" download>Bukti Transfer</a>
-              </td>
-            </tr>
-        {% endfor %}
-            <tr>
-              <th scope="row">{{forloop.counter}}</th>
-              <td></td>
-              <td></td>
-              <td>{{saldo}}</td>
-              <td>
-              </td>
-            </tr>
-
-
-      </tbody>
-    </table>
-
 
 </form>
+
+
 
 
 

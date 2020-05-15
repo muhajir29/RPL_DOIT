@@ -5,14 +5,17 @@
 <h1 class="display-4">{{judul}}</h1>
 <h2>{{subjudul}}</h2>
 
-<div class="container">
 <!--
     <a href="/transfer" class="btn btn-primary btn-lg" role="button">Pusat</a>
     <a href="/transfer/provinsi" class="btn btn-primary btn-lg" role="button">Provinsi</a>
     <a href="/transfer/kabupaten" class="btn btn-primary btn-lg" role="button">Kabupaten</a>
  -->
-
-</div>
+  <h1>{{trans_name}}</h1>
+  {% for dataCategory in categories %}
+      <a class = "nav-item" href="/laporandata/category/{{dataCategory.transfer_id}}/" title="">
+        {{dataCategory.transfer_id}}
+      </a>
+  {% endfor %}
 
 {% endblock header %}
 
@@ -25,22 +28,25 @@
         <tr>
           <th scope="col">No</th>
           <th scope="col">Transfer Id</th>
+          <th scope="col">Transfer</th>
           <th scope="col">Uraian</th>
           <th scope="col">Jumlah</th>
           <th scope="col">Bukti Pembayaran</th>
+
         </tr>
       </thead>
       <tbody>
-        {% for akun in listvaltransfer %}
+
+        {% for akun in filvaltransfer %}
             <tr>
               <th scope="row">{{forloop.counter}}</th>
+              <td>{{akun.transfer_id}}</td>
               <td>{{akun.transfer}}</td>
               <td>{{akun.uraian}}</td>
               <td>{{akun.harga}}</td>
-
               <td>
-                  <a href="/media/default.pdf" download>Bukti Item</a>
-                  <a href="/media/default.pdf" download>Bukti Transfer</a>
+                  <a href="/media/gambar/bukti_item/{{akun.bukti_item}}" download>Bukti Item</a>
+                  <a href="/media/gambar/bukti_transfer/{{akun.bukti_transfer}}" download>Bukti Transfer</a>
               </td>
             </tr>
         {% endfor %}
@@ -48,17 +54,16 @@
               <th scope="row">{{forloop.counter}}</th>
               <td></td>
               <td></td>
+              <td></td>
               <td>{{saldo}}</td>
               <td>
+              <a href="/laporandata/transfer/{{val_input}}/" class="btn btn-primary btn-lg" role="button">Submit Laporan</a>
               </td>
             </tr>
 
 
       </tbody>
     </table>
-
-
-
 
 
 

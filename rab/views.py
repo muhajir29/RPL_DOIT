@@ -4,6 +4,12 @@ from .forms import  FormTransfer, FormRab, FormValTransfer
 
 from .models import Rab, Transfer, ValTransfer
 
+
+def deletepengajuan(request,delete_id_pengajuan):
+    Rab.objects.filter(id=delete_id_pengajuan).delete()
+    return redirect('rab:index')
+
+
 def index(request):
     list_rab = Rab.objects.all()
 
