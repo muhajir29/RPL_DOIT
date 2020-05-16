@@ -9,15 +9,14 @@ def deletetransfer(request, delete_id):
 
 
 def showtransfer(request):
-    print(request.method)
+
+
    #print(request.POST['Logout'] == 'Logout')
 
     if request.method == 'POST':
-        if request.POST["Logout"] == 'Logout':
+        if request.POST["Logout"] == "Logout":
             logout(request)
         return redirect('login')
-
-    print("imam muhajir")
     list_transfer = Transfer.objects.all()
     def sum_data(list_data):
         jumlah = []
@@ -51,7 +50,13 @@ def showtransfer(request):
 
     }
 
-    return render(request, 'index.html', context)
+    template_name = None
+    print(request.user.is_authenticated())
+    if request.user.is_authenticated():
+        template_name = 'index.html'
+    else:
+        template_name = 'login.html'
+    return render(request, template_name , context)
 
 from datetime import datetime
 

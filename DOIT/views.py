@@ -30,6 +30,11 @@ def loginView(request):
         "subjudul" : "SELAMAT DATANG DI DOIT"
     }
     user = None
+    if request.method == "GET":
+        if request.user.is_authenticated():
+            return redirect('index')
+        else:
+            return render(request, 'login.html', context)
 
     if request.method == "POST":
         username_login = request.POST['username']
