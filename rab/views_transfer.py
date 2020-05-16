@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import  FormTransfer, FormRab, FormValTransfer
 from .models import Rab, Transfer, ValTransfer
+from django.contrib.auth import authenticate, login, logout
 
 def deletetransfer(request, delete_id):
     Transfer.objects.filter(id = delete_id).delete()
@@ -8,9 +9,15 @@ def deletetransfer(request, delete_id):
 
 
 def showtransfer(request):
+    print(request.method)
+   #print(request.POST['Logout'] == 'Logout')
 
+    if request.method == 'POST':
+        if request.POST["Logout"] == 'Logout':
+            logout(request)
+        return redirect('login')
 
-
+    print("imam muhajir")
     list_transfer = Transfer.objects.all()
     def sum_data(list_data):
         jumlah = []
