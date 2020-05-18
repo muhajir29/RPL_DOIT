@@ -4,14 +4,14 @@ from django.shortcuts import render, redirect
 
 from .forms import  FormTransfer, FormRab, FormValTransfer
 
-from .models import Rab, Transfer, ValTransfer
+from .models import Rab, Transfer, ValTransfer, Pusat , Sub
+from django.contrib.auth.models import Group ,User
 
 
 
 def valtransfer(request):
     data_valtransfer= FormValTransfer(request.POST or None, request.FILES)
     list_valtransfer = ValTransfer.objects.all()
-
     if request.method == "POST":
         print(data_valtransfer)
         if data_valtransfer.is_valid():
@@ -42,9 +42,32 @@ def valtransfer(request):
 
 
 def valtransfer_show(request, val_trans_input):
-    fil_valtransfer = ValTransfer.objects.filter(transfer_id = val_trans_input )
+    print(request.user.id)
+    try:
+        id_user = Pusat.objects.get(nama_id = request.user.id).id
+    except:
+        id_user = Sub.objects.get(nama_id = request.user.id).id
 
-    categories = ValTransfer.objects.values('transfer_id').distinct()
+    def colect_data(data_filter):
+        list_data = []
+        for data in data_filter:
+            list_data.append(data.id)
+
+        return list_data
+
+    if request.user.id == 1 :
+        data_transfer = Transfer.objects.all()
+    elif Group.objects.get(name= 'provinsi') in request.user.groups.all():
+        data_transfer = Transfer.objects.filter(pusat_id= id_user)
+    else:
+        data_transfer = Transfer.objects.filter(sub_id = id_user)
+
+    list_data = colect_data(data_transfer)
+
+    categories = ValTransfer.objects.filter(transfer_id__in = list_data).values('transfer_id').distinct()
+#    categories = ValTransfer.objects.values('transfer_id').distinct()#
+
+    fil_valtransfer = ValTransfer.objects.filter(transfer_id = val_trans_input )
 
     def sum_data(list_data):
         jumlah = []
