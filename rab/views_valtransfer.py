@@ -43,10 +43,11 @@ def valtransfer(request):
 
 def valtransfer_show(request, val_trans_input):
     print(request.user.id)
+    id_user = None
     try:
         id_user = Pusat.objects.get(nama_id = request.user.id).id
     except:
-        id_user = Sub.objects.get(nama_id = request.user.id).id
+        id_user = Sub.objects.get(nama_sub_id = request.user.id).id
 
     def colect_data(data_filter):
         list_data = []
@@ -55,6 +56,7 @@ def valtransfer_show(request, val_trans_input):
 
         return list_data
 
+    data_transfer = None
     if request.user.id == 1 :
         data_transfer = Transfer.objects.all()
     elif Group.objects.get(name= 'provinsi') in request.user.groups.all():
