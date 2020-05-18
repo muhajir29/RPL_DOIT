@@ -54,7 +54,6 @@ def valtransfer_show(request, val_trans_input):
 
     saldo = sum_data(fil_valtransfer.values_list('harga'))
 
-
     context ={
         'judul' : 'ion data',
         'subjudul' : 'selamat data divalidation',

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-
 from .forms import  FormTransfer, FormRab, FormValTransfer
+from .models import Rab, Transfer, ValTransfer, Sub, Pusat
+from django.contrib.auth.models import Group ,User
 
-from .models import Rab, Transfer, ValTransfer
 
 
 def deletepengajuan(request,delete_id_pengajuan):
@@ -11,11 +11,47 @@ def deletepengajuan(request,delete_id_pengajuan):
 
 
 def index(request):
-    list_rab = Rab.objects.all()
+
+    def sum_data(list_data):
+        jumlah = []
+        for i in range(len(list_data)):
+            jumlah.append(list_data[i][0])
+        return sum(jumlah)
+    jumlah_pengajuan = sum_data(Rab.objects.all().values_list('jumlah'))
+
+    try:
+        id_transfer_sub = Sub.objects.get(nama_sub_id = request.user.id).id
+        print(id_transfer_sub)
+    except:
+        id_transfer_pusat = Pusat.objects.get(nama_id = request.user.id).id
+        print(id_transfer_pusat)
+
+    if request.user.id == 1:
+        list_rab = Rab.objects.all()
+        data_pemasukan = sum_data(Rab.objects.all().values_list('jumlah'))
+
+    elif Group.objects.get(name = 'provinsi') in request.user.groups.all():
+        list_rab = Rab.objects.filter(pusat_id = id_transfer_pusat)
+        data_pemasukan = sum_data(Rab.objects.filter(pusat_id = id_transfer_pusat).values_list('jumlah'))
+        print("masuk sini")
+    else:
+        list_rab = Rab.objects.filter(sub_id = id_transfer_sub)
+        data_pemasukan = sum_data(Rab.objects.filter(sub_id = id_transfer_sub).values_list('jumlah'))
+        print("masuk jawa barat")
+
+
+    print(request.user.id)
+
+
+
+
+#    list_rab = Rab.objects.all()
+
 
     context = {
         'judul': 'RAB DOIT',
         'subjudul' : 'Selamat Datang di RAB DOIT',
+        'jumlahpengajuan' : jumlah_pengajuan,
         'form_rab' : FormRab(),
         'listrab' : list_rab,
         }
